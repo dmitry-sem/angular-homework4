@@ -1,0 +1,36 @@
+<div id="login">
+  <h1>Welcome Back!</h1>
+
+  <form action="/" method="post" [formGroup]="form">
+
+    <div class="field-wrap">
+      <mat-form-field>
+        <label *ngIf="isEmpty(form.get('email'))">
+          Email Address<span class="req">*</span>
+        </label>
+        <input matInput type="email" formControlName="email" required autocomplete="off" />
+        <mat-error class="error" *ngIf="!isValid(form.get('email'))">
+          {{getErrorMessage(form.get('email'))}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="field-wrap">
+      <mat-form-field>
+        <label *ngIf="isEmpty(form.get('password'))">
+          Password<span class="req">*</span>
+        </label>
+        <input matInput type="password" formControlName="password" required autocomplete="off" />
+        <mat-error class="error" *ngIf="!isValid(form.get('password'))">
+          {{getErrorMessage(form.get('password'))}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <p class="forgot"><a href="#">Forgot Password?</a></p>
+
+    <button class="button button-block">Log In</button>
+
+  </form>
+
+</div>
